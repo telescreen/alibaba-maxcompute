@@ -1,0 +1,12 @@
+--name:understand_chicago_crime
+--author:habuihong
+--create time:2018-01-10 13:46
+SELECT primarytype, description,
+       SUM(CASE WHEN year = 2015 then 1 else 0 END) as crime2015,
+       SUM(CASE WHEN year = 2016 then 1 else 0 END) as crime2016,
+       ROUND((SUM(CASE WHEN year = 2016 then 1 else 0 END) - SUM(CASE WHEN year = 2015 then 1 else 0 END)) / SUM(CASE WHEN year = 2015 then 1 else 0 END), 3) as pctlchange
+FROM chicago_crime
+WHERE arrest = TRUE AND year in (2015, 2016)
+GROUP BY primarytype, description
+HAVING crime2015 > 100
+ORDER BY pctlchange DESC LIMIT 100;

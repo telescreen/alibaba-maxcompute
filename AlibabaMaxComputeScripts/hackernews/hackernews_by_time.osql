@@ -1,0 +1,7 @@
+--name:hackernews_by_time
+--author:habuihong
+--create time:2018-01-18 19:01
+SELECT year(timestamp0) as syear, month(timestamp0) as smonth, count(*) as post from hacker_news
+WHERE articletype != 'comment'
+GROUP BY year(timestamp0), month(timestamp0)
+ORDER BY syear, smonth LIMIT 100;

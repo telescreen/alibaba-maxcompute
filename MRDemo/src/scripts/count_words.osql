@@ -1,0 +1,4 @@
+--name:count_words
+--author:habuihong
+--create time:2018-01-29 11:33
+select * from wordcount;

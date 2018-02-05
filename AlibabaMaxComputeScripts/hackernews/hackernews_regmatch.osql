@@ -1,0 +1,5 @@
+--name:hackernews_regmatch
+--author:habuihong
+--create time:2018-01-30 09:44
+select title, REGEXP_COUNT(title, 'Github') as count_github from hacker_news
+WHERE title is not NULL;

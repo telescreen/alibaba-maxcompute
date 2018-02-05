@@ -1,0 +1,16 @@
+--name:create_table_vehicle
+--author:habuihong
+--create time:2018-01-29 13:41
+CREATE EXTERNAL TABLE IF NOT EXISTS vehicle_external
+(
+  vehicleId BIGINT,
+  recordId BIGINT,
+  patientId BIGINT,
+  calls BIGINT,
+  locationLatitute DOUBLE,
+  locationLongtitue DOUBLE,
+  recordTime STRING,
+  direction STRING
+)
+STORED BY 'com.aliyun.odps.CsvStorageHandler'
+LOCATION 'oss://<AccessID>:<AccessKey>@vpc100-oss-ap-southeast-1.aliyuncs.com/<bucketname>/<path>';

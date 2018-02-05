@@ -1,0 +1,12 @@
+--name:top_by_domain
+--author:habuihong
+--create time:2018-01-18 16:36
+SELECT top_domain_2017, c, score_gt_40, ROUND(100*score_gt_40/c,2) as chances_of_homepage FROM
+(
+    SELECT REGEXP_EXTRACT(url, '//([^/]*)/?') top_domain_2017, COUNT(*) c,
+           COUNT(CASE WHEN score > 40 THEN score ELSE NULL END) as score_gt_40 FROM hacker_news
+    WHERE url != '' AND YEAR(timestamp0) = 2017
+    GROUP BY REGEXP_EXTRACT(url, '//([^/]*)/?')
+) TEMPTABLE
+WHERE c > 300
+ORDER BY chances_of_homepage DESC LIMIT 100;

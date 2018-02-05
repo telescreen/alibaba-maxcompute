@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS wordcount(value STRING);
+CREATE TABLE IF NOT EXISTS wordcount_out(word STRING, count BIGINT);

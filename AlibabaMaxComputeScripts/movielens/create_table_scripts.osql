@@ -1,0 +1,34 @@
+--name:create_table_scripts
+--author:habuihong
+--create time:2018-01-29 15:52
+CREATE TABLE IF NOT EXISTS ratings (
+  userId BIGINT,
+  movieId BIGINT,
+  rating DOUBLE,
+  `timestamp` BIGINT
+);
+CREATE TABLE IF NOT EXISTS tags (
+  userId BIGINT,
+  movieId BIGINT,
+  tag STRING,
+  `timestamp` BIGINT
+);
+CREATE TABLE IF NOT EXISTS movies (
+  movieId BIGINT,
+  title STRING,
+  genres STRING
+);
+CREATE TABLE IF NOT EXISTS links (
+  movieId BIGINT,
+  imdbId BIGINT,
+  tmpdbId BIGINT
+);
+CREATE TABLE IF NOT EXISTS genome_scores (
+  movieId BIGINT,
+  tagId BIGINT,
+  relevance DOUBLE
+);
+CREATE TABLE IF NOT EXISTS genome_tags (
+  tagId BIGINT,
+  tag STRING
+);

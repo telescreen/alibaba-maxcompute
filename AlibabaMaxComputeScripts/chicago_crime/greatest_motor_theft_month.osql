@@ -1,0 +1,16 @@
+--name:greatest_motor_theft_month
+--author:habuihong
+--create time:2018-01-12 13:44
+SELECT year, month, incident,
+       RANK() over (PARTITION BY year ORDER BY incident DESC) as ranking
+FROM (
+    SELECT year,
+       REGEXP_EXTRACT(createdate, '(\\d{2})/.*',1) as month,
+       COUNT(1) AS incident
+    FROM chicago_crime
+    WHERE primarytype = 'MOTOR VEHICLE THEFT'
+    AND year <= 2016
+    GROUP BY year, REGEXP_EXTRACT(createdate, '(\\d{2})/.*',1)
+    ORDER BY incident DESC LIMIT 1000
+) t
+ORDER BY year DESC LIMIT 1000;

@@ -1,0 +1,175 @@
+{
+  "configuration": {
+    "reader": {
+      "plugin": "oss",
+      "parameter": {
+        "fieldDelimiterOrigin": ",",
+        "nullFormat": "",
+        "compress": "",
+        "datasource": "HaDataSource",
+        "column": [
+          {
+            "name": 1,
+            "index": 1,
+            "type": "string"
+          },
+          {
+            "name": 2,
+            "index": 2,
+            "type": "string"
+          },
+          {
+            "name": 3,
+            "index": 3,
+            "type": "string"
+          },
+          {
+            "name": 4,
+            "index": 4,
+            "type": "string"
+          },
+          {
+            "name": 5,
+            "index": 5,
+            "type": "string"
+          },
+          {
+            "name": 6,
+            "index": 6,
+            "type": "string"
+          },
+          {
+            "name": 7,
+            "index": 7,
+            "type": "string"
+          },
+          {
+            "name": 8,
+            "index": 8,
+            "type": "string"
+          },
+          {
+            "name": 9,
+            "index": 9,
+            "type": "string"
+          },
+          {
+            "name": 10,
+            "index": 10,
+            "type": "string"
+          },
+          {
+            "name": 11,
+            "index": 11,
+            "type": "string"
+          },
+          {
+            "name": 12,
+            "index": 12,
+            "type": "string"
+          },
+          {
+            "name": 13,
+            "index": 13,
+            "type": "string"
+          },
+          {
+            "name": 14,
+            "index": 14,
+            "type": "string"
+          },
+          {
+            "name": 15,
+            "index": 15,
+            "type": "string"
+          },
+          {
+            "name": 16,
+            "index": 16,
+            "type": "string"
+          },
+          {
+            "name": 17,
+            "index": 17,
+            "type": "string"
+          },
+          {
+            "name": 18,
+            "index": 18,
+            "type": "string"
+          },
+          {
+            "name": 19,
+            "index": 19,
+            "type": "string"
+          },
+          {
+            "name": 20,
+            "index": 20,
+            "type": "string"
+          },
+          {
+            "name": 21,
+            "index": 21,
+            "type": "string"
+          },
+          {
+            "name": 22,
+            "index": 22,
+            "type": "string"
+          }
+        ],
+        "skipHeader": "true",
+        "encoding": "UTF-8",
+        "fieldDelimiter": ",",
+        "object": [
+          "data/chicago_crime/Chicago_Crimes_2001_to_2004.csv",
+          "data/chicago_crime/Chicago_Crimes_2005_to_2007.csv",
+          "data/chicago_crime/Chicago_Crimes_2008_to_2011.csv",
+          "data/chicago_crime/Chicago_Crimes_2012_to_2017.csv"
+        ]
+      }
+    },
+    "writer": {
+      "plugin": "odps",
+      "parameter": {
+        "partition": "",
+        "truncate": true,
+        "datasource": "odps_first",
+        "column": [
+          "id",
+          "casenumber",
+          "createdate",
+          "block",
+          "iucr",
+          "primarytype",
+          "description",
+          "locationdescription",
+          "arrest",
+          "domestic",
+          "beat",
+          "district",
+          "ward",
+          "communityarea",
+          "fbicode",
+          "xcoordinate",
+          "ycoordinate",
+          "year",
+          "updatedon",
+          "lattitude",
+          "longtitude",
+          "locationname"
+        ],
+        "table": "chicago_crime"
+      }
+    },
+    "setting": {
+      "speed": {
+        "concurrent": 5,
+        "mbps": 5
+      }
+    }
+  },
+  "type": "job",
+  "version": "1.0"
+}

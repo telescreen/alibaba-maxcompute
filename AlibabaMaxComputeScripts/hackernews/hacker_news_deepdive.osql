@@ -1,0 +1,11 @@
+--name:hacker_news_deepdive
+--author:habuihong
+--create time:2018-01-18 14:20
+SELECT
+    score,
+    COUNT(sid) AS stories_count
+FROM
+    hacker_news
+WHERE NOT (score IS NULL)
+GROUP BY score
+ORDER BY stories_count DESC LIMIT 500;
